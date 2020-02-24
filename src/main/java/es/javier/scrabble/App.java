@@ -13,7 +13,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         StackPane root = new StackPane();
-        var scene = new Scene(root, 640, 480);
+        var scene = new Scene(root, 800, 800);
         stage.setScene(scene);
         stage.show();
         
