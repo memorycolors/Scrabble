@@ -16,13 +16,15 @@ public class Ficha {
     // metodo constructor se llama igual que la clase 
     
     public Ficha() {
-        Rectangle rectangle = new Rectangle();
-        rectangle.setWidth(TAM_FICHA );
-        rectangle.setHeight(TAM_FICHA );
-        rectangle.setArcWidth(20);
-        rectangle.setArcHeight(20);
-        rectangle.setFill(Color.BEIGE);
-        group.getChildren().add(rectangle);
+        
+        //ficha A 
+        Rectangle fichaa = new Rectangle();
+        fichaa.setWidth(TAM_FICHA );
+        fichaa.setHeight(TAM_FICHA );
+        fichaa.setArcWidth(20);
+        fichaa.setArcHeight(20);
+        fichaa.setFill(Color.AQUA);
+        group.getChildren().add(fichaa);
         
         Text a = new Text("A");
         a.setFont(Font.font ("Verdana", 20));
@@ -30,6 +32,6 @@ public class Ficha {
         a.setTextAlignment(TextAlignment.CENTER);
         a.setLayoutY(28);
         a.setLayoutX(17);
-        group.getChildren().add(a);
+        group.getChildren().add(a);  
     }   
 }

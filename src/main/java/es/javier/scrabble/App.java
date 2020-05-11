@@ -17,11 +17,13 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         
-        Ficha ficha = new Ficha();
-        root.getChildren().add(ficha.group);
+//        Ficha ficha = new Ficha();
+//        root.getChildren().add(ficha.group);
         
         Tablero tablero = new Tablero();
         root.getChildren().add(tablero);
+        
+        
     }
 
     public static void main(String[] args) {
