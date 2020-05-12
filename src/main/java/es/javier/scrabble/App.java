@@ -16,14 +16,10 @@ public class App extends Application {
         var scene = new Scene(root, 800, 800);
         stage.setScene(scene);
         stage.show();
-        
-//        Ficha ficha = new Ficha();
-//        root.getChildren().add(ficha.group);
-        
+
         Tablero tablero = new Tablero();
         root.getChildren().add(tablero);
-        
-        
+
     }
 
     public static void main(String[] args) {
