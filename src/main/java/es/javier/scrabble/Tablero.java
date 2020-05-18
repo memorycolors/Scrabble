@@ -49,9 +49,9 @@ public class Tablero extends Pane {
     private void colocarFicha(int columna, int fila) {
         Ficha ficha = new Ficha();
         ficha.group.setLayoutX((columna) * Ficha.TAM_FICHA);
-        ficha.group.setLayoutY((fila) / Ficha.TAM_FICHA);
+        ficha.group.setLayoutY((fila) * Ficha.TAM_FICHA);
         this.getChildren().add(ficha.group);
-
+        
     }
    
 

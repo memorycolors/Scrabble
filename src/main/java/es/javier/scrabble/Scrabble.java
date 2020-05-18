@@ -1,16 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.javier.scrabble;
 
-/**
- *
- * @author Javier
- */
 public class Scrabble {
-    
-    
-    
+
+    char[][] cuadricula = new char[14][14];
+
+    public Scrabble() {
+        for (int f =0; f<14; f++) {
+            for (int c=0; c<14; c++) {
+                System.out.println("f:" + f + "c:" + c);
+                cuadricula[f][c] = '.';
+            }
+        }
+    }
+
+    public void mostrarConsola() {
+        for (int f=0; f<14; f++) {
+            for (int c=0; c<14; c++) {
+                System.out.println(cuadricula[f][c]);
+            }
+            System.out.println("");
+        }
+    }
+    public void colocarFicha(int fila, int columna, int ficha) {
+        System.out.println("Colocando ficha en matriz: " + fila + "," + columna + "," + ficha);
+        cuadricula[fila][columna] = ficha;
+    }
+    this.fichaa;
+       
 }
+
