@@ -21,11 +21,12 @@ public class Scrabble {
             System.out.println("");
         }
     }
-    public void colocarFicha(int fila, int columna, int ficha) {
-        System.out.println("Colocando ficha en matriz: " + fila + "," + columna + "," + ficha);
-        cuadricula[fila][columna] = ficha;
+    public void colocarFicha(int fila, int columna, char letra) {
+        System.out.println("Colocando ficha en matriz: " + fila + "," + columna + "," + letra);
+        cuadricula[fila][columna] = letra;
+        
     }
-    this.fichaa;
+    
        
 }
 
