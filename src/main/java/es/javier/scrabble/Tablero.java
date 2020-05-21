@@ -6,7 +6,10 @@ import javafx.scene.shape.Line;
 
 public class Tablero extends Pane {
 
+    Scrabble scrabble;
+
     public Tablero() {
+        scrabble = new Scrabble();
         //Lineas verticales del tablero
         for (int i = 0; i < 15; i++) {
             Line vertical = new Line(Ficha.TAM_FICHA * i, 0, i * Ficha.TAM_FICHA, Ficha.TAM_FICHA * 14);
@@ -29,9 +32,13 @@ public class Tablero extends Pane {
                 //coger tambien el click y y aplicarlo al a columna-- Hecho  
                 int clicX = (int) mouseEvent.getX();
                 int clicY = (int) mouseEvent.getY();
+                
                 int fila = clicY / Ficha.TAM_FICHA;
                 int columna = clicX / Ficha.TAM_FICHA;
-
+                
+                scrabble.colocarFicha(fila, columna,'b' );
+               
+                
                 System.out.println("Columna" + columna);
                 System.out.println("Fila" + fila);
                 //crear la ficha 
@@ -39,7 +46,6 @@ public class Tablero extends Pane {
                 this.colocarFicha(columna, fila);
 
                 // mover la ficha a la posicion del click 
-                
             });
 
         }
@@ -52,7 +58,7 @@ public class Tablero extends Pane {
         ficha.group.setLayoutY((fila) * Ficha.TAM_FICHA);
         this.getChildren().add(ficha.group);
         
+        
     }
-   
 
 }
