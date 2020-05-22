@@ -13,8 +13,9 @@ public class Ficha {
     static final short TAM_FICHA = 45;
 
     // metodo constructor se llama igual que la clase 
-    public Ficha() {
-
+    public Ficha(char letra) {
+        
+        String texto = Character.toString(letra);
         //ficha A 
         Rectangle fichaa = new Rectangle();
         fichaa.setWidth(TAM_FICHA);
@@ -24,9 +25,7 @@ public class Ficha {
         fichaa.setFill(Color.AQUA);
         group.getChildren().add(fichaa);
 
-        
-        
-        Text a = new Text("A");
+        Text a = new Text(texto);
         a.setFont(Font.font("Verdana", 20));
         a.setFill(Color.BLACK);
         a.setTextAlignment(TextAlignment.CENTER);
@@ -34,4 +33,6 @@ public class Ficha {
         a.setLayoutX(17);
         group.getChildren().add(a);
     }
+    
+      
 }
