@@ -1,6 +1,5 @@
 package es.javier.scrabble;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -9,9 +8,7 @@ import javafx.scene.shape.Line;
 public class Tablero extends Pane {
 
     Scrabble scrabble;
-    TextField textField = new TextField();
-    
-    
+    TextField miTextField = new TextField();
 
     public Tablero() {
         scrabble = new Scrabble();
@@ -28,31 +25,38 @@ public class Tablero extends Pane {
                     0, i * Ficha.TAM_FICHA/*lineas horizontales desde el lado izquierdo */);
             this.getChildren().add(horizontal);
 
-            // click raton -- hacer click en la columna y ficha 
-            this.setOnMouseClicked((MouseEvent mouseEvent) -> {
-                System.out.println("Mouse clicked X,Y: "
-                        + mouseEvent.getX() + " : " + mouseEvent.getX()
-                        + mouseEvent.getY() + " : " + mouseEvent.getY());
-                
-                //coger tambien el click y y aplicarlo al a columna-- Hecho  
-                int clicX = (int) mouseEvent.getX();
-                int clicY = (int) mouseEvent.getY();
-
-                int fila = clicY / Ficha.TAM_FICHA;
-                int columna = clicX / Ficha.TAM_FICHA;
-
-                scrabble.colocarFicha(fila, columna, 'c');
-
-                System.out.println("Columna" + columna);
-                System.out.println("Fila" + fila);
-                //crear la ficha 
-                //poner la ficha en la pantalla 
-                this.colocarFicha(columna, fila);
-
-                // mover la ficha a la posicion del click 
-            });
-
         }
+        miTextField.setLayoutX(200);
+        miTextField.setLayoutY(700);
+
+        this.getChildren().add(miTextField);
+
+        // click raton -- hacer click en la columna y ficha 
+        this.setOnMouseClicked((MouseEvent mouseEvent) -> {
+            System.out.println("Mouse clicked X,Y: "
+                    + mouseEvent.getX() + " : " + mouseEvent.getX()
+                    + mouseEvent.getY() + " : " + mouseEvent.getY());
+
+            String texto = miTextField.getText();
+            System.out.println("introducir texto: ");
+
+            //coger tambien el click y y aplicarlo al a columna-- Hecho  
+            int clicX = (int) mouseEvent.getX();
+            int clicY = (int) mouseEvent.getY();
+
+            int fila = clicY / Ficha.TAM_FICHA;
+            int columna = clicX / Ficha.TAM_FICHA;
+
+            scrabble.colocarFicha(fila, columna, 'c');
+
+            System.out.println("Columna" + columna);
+            System.out.println("Fila" + fila);
+            //crear la ficha 
+            //poner la ficha en la pantalla 
+            this.colocarFicha(columna, fila);
+
+            // mover la ficha a la posicion del click 
+        });
 
     }
 
@@ -61,12 +65,7 @@ public class Tablero extends Pane {
         ficha.group.setLayoutX((columna) * Ficha.TAM_FICHA);
         ficha.group.setLayoutY((fila) * Ficha.TAM_FICHA);
         this.getChildren().add(ficha.group);
-       
-        
-        
+
     }
-    
-    
-    
-            
+
 }
