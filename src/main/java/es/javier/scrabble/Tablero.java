@@ -11,6 +11,14 @@ public class Tablero extends Pane {
     TextField miTextField = new TextField();
 
     public Tablero() {
+        this.setMinWidth(630);
+        this.setMaxWidth(630);
+        this.setPrefWidth(630);
+        
+        this.setMinHeight(630);
+        this.setMaxHeight(630);
+        this.setPrefHeight(630);
+        
         scrabble = new Scrabble();
         //Lineas verticales del tablero
         for (int i = 0; i < 15; i++) {
@@ -34,33 +42,35 @@ public class Tablero extends Pane {
         // click raton -- hacer click en la columna y ficha 
         this.setOnMouseClicked((MouseEvent mouseEvent) -> {
             System.out.println("Mouse clicked X,Y: "
-                    + mouseEvent.getX() + " : " + mouseEvent.getX()
-                    + mouseEvent.getY() + " : " + mouseEvent.getY());
+                    + mouseEvent.getX() + " : "
+                    + mouseEvent.getY() + " : ");
 
             String texto = miTextField.getText();
-            System.out.println("introducir texto: ");
-
+            System.out.println(texto.charAt(0));
+            
+            
             //coger tambien el click y y aplicarlo al a columna-- Hecho  
             int clicX = (int) mouseEvent.getX();
             int clicY = (int) mouseEvent.getY();
-
+            
             int fila = clicY / Ficha.TAM_FICHA;
             int columna = clicX / Ficha.TAM_FICHA;
 
-            scrabble.colocarFicha(fila, columna, 'c');
+            scrabble.colocarFicha(fila, columna, texto.charAt(0));
 
             System.out.println("Columna" + columna);
             System.out.println("Fila" + fila);
+            System.out.println("texto"+ texto.charAt(0));
             //crear la ficha 
             //poner la ficha en la pantalla 
-            this.colocarFicha(columna, fila);
+            this.colocarFicha(columna, fila );
 
             // mover la ficha a la posicion del click 
         });
 
     }
 
-    private void colocarFicha(int columna, int fila) {
+    private void colocarFicha(int columna, int fila ) {
         Ficha ficha = new Ficha('c');
         ficha.group.setLayoutX((columna) * Ficha.TAM_FICHA);
         ficha.group.setLayoutY((fila) * Ficha.TAM_FICHA);
